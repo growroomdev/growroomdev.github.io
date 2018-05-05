@@ -1,4 +1,5 @@
-[
+{
+  "parts": [
   {
     "PartNumber": 904465,
     "Category": "Reflectors",
@@ -944,4 +945,5 @@
     "Price": "",
     "Orientation": ""
   }
-]
+  ]
+}
