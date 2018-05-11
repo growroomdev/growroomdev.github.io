@@ -1,0 +1,61 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 09.05.2018 10:45:09
+
+newmtl 03___Default
+	Ns 15.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 1.0440 1.0440 1.0440
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_ReflectorMetal.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_ReflectorMetal.jpg
+	map_bump I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_ReflectorMetal.jpg
+	bump I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_ReflectorMetal.jpg
+
+newmtl 09___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_Ceramic.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_Ceramic.jpg
+
+newmtl 07___Default
+	Ns 23.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.6210 0.6210 0.6210
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BaseMetalY.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BaseMetalY.jpg
+
+newmtl 08___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhiteLight.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhiteLight.jpg
+	map_Ke I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhiteLight.jpg

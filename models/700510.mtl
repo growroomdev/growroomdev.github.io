@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 09.05.2018 10:18:24
+# File Created: 09.05.2018 10:16:53
 
 newmtl 02___Default
 	Ns 35.0000
@@ -26,8 +26,8 @@ newmtl 03___Default
 	Kd 0.5880 0.5880 0.5880
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackMetal.jpg
-	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackMetal.jpg
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BaseMetalL.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BaseMetalL.jpg
 
 newmtl 01___Default
 	Ns 35.0000
@@ -43,7 +43,7 @@ newmtl 01___Default
 	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_IdealAirLogo01.jpg
 	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_IdealAirLogo01.jpg
 
-newmtl 08___Default
+newmtl 09___Default
 	Ns 35.0000
 	Ni 1.5000
 	d 1.0000
@@ -54,5 +54,5 @@ newmtl 08___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.2250 0.2250 0.2250
 	Ke 0.0000 0.0000 0.0000
-	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_IdealAirLogo02.jpg
-	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_IdealAirLogo02.jpg
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackMetal.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackMetal.jpg

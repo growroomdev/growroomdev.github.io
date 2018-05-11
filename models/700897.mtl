@@ -1,0 +1,100 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 09.05.2018 10:22:51
+
+newmtl 08___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0510 0.0510 0.0510
+	Kd 0.0510 0.0510 0.0510
+	Ks 0.0450 0.0450 0.0450
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlastic.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlastic.jpg
+
+newmtl 055___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0510 0.0510 0.0510
+	Kd 0.0510 0.0510 0.0510
+	Ks 0.0450 0.0450 0.0450
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlasticTire.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlasticTire.jpg
+
+newmtl 02___Default
+	Ns 35.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.8100 0.8100 0.8100
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlueMetal2.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlueMetal2.jpg
+
+newmtl 03___Default
+	Ns 35.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.8100 0.8100 0.8100
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlueMetal4.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlueMetal4.jpg
+
+newmtl 07___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlastic.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlastic.jpg
+
+newmtl 09___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlasticGrid.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlasticGrid.jpg
+
+newmtl 04___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlasticPanel.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_PalePlasticPanel.jpg

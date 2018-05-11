@@ -1,0 +1,87 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 09.05.2018 10:27:06
+
+newmtl SunVR_Brushed_Steel
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.3647 0.4000 0.4588
+	Kd 0.3647 0.4000 0.4588
+	Ks 1.1250 1.1250 1.1250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Metal01.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Metal01.jpg
+
+newmtl SunVR_DarkMetal03
+	Ns 33.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0392 0.0392 0.0392
+	Kd 0.0392 0.0392 0.0392
+	Ks 0.4590 0.4590 0.4590
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlastic.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_BlackPlastic.jpg
+
+newmtl SunVR_Copper
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.3373 0.2431 0.0431
+	Kd 0.3373 0.2431 0.0431
+	Ks 1.3500 1.3500 1.3500
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Metal02.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Metal02.jpg
+
+newmtl 09___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Logo03.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Logo03.jpg
+
+newmtl 07___Default
+	Ns 55.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 1.9350 1.9350 1.9350
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Plastic02.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Plastic02.jpg
+	map_d I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Plastic.jpg
+
+newmtl 08___Default
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Gauge.jpg
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_CO2Gauge.jpg
