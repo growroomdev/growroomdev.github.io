@@ -55,5 +55,4 @@ newmtl 09___Default
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
 	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhitePlastic.jpg
-	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhitePlastic.jpg
-	map_d I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_FanCageOpac.png
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_FanCageOpac.png
