@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 09.05.2018 10:39:29
+# File Created: 14.05.2018 10:03:03
 
 newmtl 07___Default
 	Ns 30.0000
@@ -54,6 +54,5 @@ newmtl 09___Default
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhitePlastic.jpg
-	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_WhitePlastic.jpg
-	map_d I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_FanCageOpac.png
+	map_Ka I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_FanCage_White.png
+	map_Kd I:\Sunlight_RoomConfig\3D\Textures\SunRoomC_FanCage_White.png
