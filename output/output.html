@@ -129,50 +129,189 @@
             font-size: 12px;
         }
     </style>
+
+    <script>
+        var schema = {};
+        var schemaURL = "https://growroomdev.github.io/parts.csv";
+
+        class SchemaItem {
+            constructor(number, name, desc, price) {
+                this.number = number;
+                this.name = name;
+                this.desc = desc;
+                this.price = price;
+
+                schema[number] = this;
+            }
+
+            getHTML(qty) {
+                var total = qty * this.price;
+                return `
+<tr>
+    <td>
+        ` + this.number + `
+    </td>
+    <td>
+        <div class="avoidBreak">
+            ` + this.name + `
+            <div class="description">
+                ` + this.desc + `
+            </div>
+        </div>
+    </td>
+    <td>
+        $` + this.price + `
+    </td>
+    <td>
+        ` + qty + `
+    </td>
+    <td>
+        $` + total + `
+    </td>
+</tr>`;
+            }
+        }
+
+        function CSVToArray(strData) {
+            strDelimiter = ",";
+            
+            var objPattern = new RegExp(
+                (
+                    // Delimiters.
+                    "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+                    // Quoted fields.
+                    "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+                    // Standard fields.
+                    "([^\"\\" + strDelimiter + "\\r\\n]*))"
+                ),
+                "gi"
+            );
+            
+            var arrData = [[]];
+            
+            var arrMatches = null;
+            
+            while (arrMatches = objPattern.exec(strData)) {
+                var strMatchedDelimiter = arrMatches[1];
+
+                if (strMatchedDelimiter.length && strMatchedDelimiter !== strDelimiter) {
+                    arrData.push([]);
+                }
+
+                var strMatchedValue;
+
+                if (arrMatches[2]) {
+                    strMatchedValue = arrMatches[2].replace(new RegExp("\"\"", "g"), "\"");
+                } else {
+                    strMatchedValue = arrMatches[3];
+                }
+
+                arrData[arrData.length - 1].push(strMatchedValue);
+            }
+            
+            return (arrData);
+        }
+
+        function downloadSchema() {
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    loadSchema(req.responseText);
+                }
+            };
+            req.open("GET", schemaURL, true);
+            req.send();
+        }
+
+        function loadSchema(text) {
+            var data = CSVToArray(text);
+
+            for (var i = 1; i < data.length; i++) {
+                var line = data[i];
+                if (line[0].length == 0) {
+                    continue; // Skip empty lines in the CSV
+                }
+
+                var number = line[0];
+                var name = line[2];
+                var desc = line[3];
+                var price = Number.parseFloat(line[5].substring(1));
+
+                var item = new SchemaItem(number, name, desc, price); // Automatically gets put into the dictionary
+            }
+
+            populateData();
+        }
+
+        function populateData() {
+            var url = new URL(window.location.href);
+            var arg = url.searchParams.get("items");
+
+            var tableText = "";
+            var msrp = 0;
+
+            if (arg != null) {
+                var items = arg.split(';');
+                var alerted = false;
+
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i].split(',');
+                    var number = item[0];
+                    var qty = Number.parseInt(item[1]);
+
+                    var schemaItem = schema[number];
+                    if (schemaItem == null) {
+                        if (!alerted) {
+                            alert("Invalid Item: " + number);
+                            alerted = true;
+                        }
+                        console.log("Invalid Item: " + number);
+                    } else {
+                        tableText += schemaItem.getHTML(qty);
+                        msrp += schemaItem.price * qty;
+                    }
+                }
+            } else {
+                console.log("Items not specified in URL!");
+            }
+            
+            document.getElementById("itemTable").innerHTML += tableText;
+            document.getElementById("msrp1").innerHTML += " $" + msrp;
+            document.getElementById("msrp2").innerHTML += " $" + msrp;
+
+            var date = new Date();
+            document.getElementById("date").innerHTML += " " + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
+
+            var hours = date.getHours();
+            var suffix = (hours >= 12) ? ' PM' : ' AM';
+            hours = (hours > 12) ? hours - 12 : hours;
+            hours = (hours == '00') ? 12 : hours;
+
+            document.getElementById("time").innerHTML += " " + hours + ":" + date.getMinutes() + suffix;
+        }
+    </script>
 </head>
-<body>
+<body onload="downloadSchema()">
     <div class="content">
         <img alt="Sunlight Supply Inc" src="sunlogo.png" width="361" />
 
         <div class="details">
             <p class="bold">LIST DETAILS</p>
-            <p class="info">Date: 6/15/2018</p>
-            <p class="info">Time: 9:19 PM</p>
-            <p class="info green">Total MSRP: $450.00</p>
+            <p class="info" id="date">Date:</p>
+            <p class="info" id="time">Time:</p>
+            <p class="info green" id="msrp1">Total MSRP:</p>
         </div>
 
         <h1>Room Builder Item List</h1>
-        <table>
+        <table id="itemTable">
             <tr>
                 <th>Part No.</th>
                 <th>Item Description</th>
                 <th>MSRP</th>
                 <th>Quantity</th>
                 <th>Total</th>
-            </tr>
-            <tr>
-                <td>90488</td>
-                <td>
-                    <div class="avoidBreak">
-                        Item Name
-                        <div class="description">This is the description of the item</div>
-                    </div>
-                </td>
-                <td>$200.00</td>
-                <td>1</td>
-                <td>$200.00</td>
-            </tr>
-            <tr>
-                <td>90233</td>
-                <td>
-                    <div class="avoidBreak">
-                        Item Name 2
-                        <div class="description">This is the description of the second item</div>
-                    </div>
-                </td>
-                <td>$150.00</td>
-                <td>2</td>
-                <td>$300.00</td>
             </tr>
         </table>
 
@@ -182,7 +321,7 @@
             <p>Visit <a href="https://www.sunlightsupply.com/page/findretailer">https://www.sunlightsupply.com/page/findretailer</a> to find your local Sunlight Supply retailer.</p>
         </div>
         <div class="total">
-            <p>Total MSRP: <b>$450.00</b></p>
+            <p>Total MSRP: <b id="msrp2"></b></p>
         </div>
 
         <div class="footer">
