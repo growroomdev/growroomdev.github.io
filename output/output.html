@@ -3,7 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>GrowRoom Order Sheet</title>
+    <link rel="icon" href="icon.png">
     <style type="text/css">
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -28,7 +29,7 @@
 
         .details {
             margin-right: 100px;
-            text-align:right;
+            text-align: right;
         }
 
         h1, h2 {
@@ -37,7 +38,7 @@
         }
 
         table {
-            width:100%;
+            width: 100%;
             border-collapse: collapse;
         }
 
@@ -65,8 +66,8 @@
 
         .description {
             font-size: 12px;
-            color:#212121;
-            width:100%;
+            color: #212121;
+            width: 100%;
             max-width: 200px;
             margin-left: auto;
             margin-right: auto;
@@ -78,14 +79,14 @@
             float: left;
         }
 
-        .toc b {
-            font-size:14px;
-            margin:0px;
-        }
+            .toc b {
+                font-size: 14px;
+                margin: 0px;
+            }
 
-        .toc p {
-            font-size:12px;
-        }
+            .toc p {
+                font-size: 12px;
+            }
 
         .total {
             color: green;
@@ -94,14 +95,14 @@
             margin: 50px 0px 0px 50px;
         }
 
-        .total b {
-            margin: 15px 0px 0px 15px;
-            border: 1px solid black;
-            padding: 5px 15px 5px 15px;
-        }
+            .total b {
+                margin: 15px 0px 0px 15px;
+                border: 1px solid black;
+                padding: 5px 15px 5px 15px;
+            }
 
         h2 {
-            text-align:center;
+            text-align: center;
         }
 
         .footer {
@@ -113,10 +114,10 @@
             height: 70px;
         }
 
-        .bottom img {
-            height:70%;
-            padding:0px;
-        }
+            .bottom img {
+                height: 70%;
+                padding: 0px;
+            }
 
         .bottomInfo {
             float: left;
@@ -124,57 +125,113 @@
             margin-top: auto;
         }
 
-        .bottomInfo p {
-            margin: 0px 20px 5px 20px;
-            font-size: 12px;
+            .bottomInfo p {
+                margin: 0px 20px 5px 20px;
+                font-size: 12px;
+            }
+
+        input[type=number] {
+            width: 60px;
         }
     </style>
 
     <script>
         var schema = {};
         var schemaURL = "https://growroomdev.github.io/parts.csv";
+        var itemCart = [];
 
         class SchemaItem {
-            constructor(number, name, desc, price) {
+            constructor(number, name, desc, price, type) {
                 this.number = number;
                 this.name = name;
                 this.desc = desc;
                 this.price = price;
+                this.type = type;
 
                 schema[number] = this;
             }
 
-            getHTML(qty) {
+            getHTML(qty, rowIndex) {
                 var total = qty * this.price;
                 return `
 <tr>
-    <td>
-        ` + this.number + `
-    </td>
-    <td>
-        <div class="avoidBreak">
-            ` + this.name + `
-            <div class="description">
-                ` + this.desc + `
+        <td>
+            ` + this.number + `
+        </td>
+        <td>
+            <div class="avoidBreak">
+                ` + this.name + `
+                <div class="description">
+                    ` + this.desc + `
+                </div>
             </div>
-        </div>
-    </td>
-    <td>
-        $` + this.price + `
-    </td>
-    <td>
-        ` + qty + `
-    </td>
-    <td>
-        $` + total + `
-    </td>
+        </td>
+        <td>
+            $` + this.price + `
+        </td>
+        <td id="qty` + rowIndex + `" onclick="createTextBox(` + rowIndex + `)">
+            ` + qty + `
+        </td>
+        <td id="total` + rowIndex + `">
+            $` + total + `
+        </td>
 </tr>`;
             }
         }
 
+        function createTextBox(rowIndex) {
+            var textBox = document.getElementById("textBox" + rowIndex)
+            if (textBox == null) {
+                var element = document.getElementById("qty" + rowIndex);
+                var action = "removeTextBox(" + rowIndex + ")"
+                element.innerHTML = `
+<form action="javascript:` + action + `">
+        <input type="number" id="textBox` + rowIndex + `" value="` + element.innerHTML.trim() + `" onfocusout="` + action + `"/>
+</form>`;
+                document.getElementById("textBox" + rowIndex).select();
+            }
+        }
+
+        function removeTextBox(rowIndex) {
+            var textBox = document.getElementById("textBox" + rowIndex);
+            if (textBox != null) {
+                var element = document.getElementById("qty" + rowIndex);
+                element.innerHTML = textBox.value;
+            }
+
+            updateAllTotals();
+        }
+
+        function updateAllTotals() {
+            var msrp = 0;
+
+            for (var i = 0; i < itemCart.length; i++) {
+                var schemaItem = itemCart[i];
+
+                if (schemaItem != null) {
+                    var qtyString;
+
+                    var textBox = document.getElementById("textBox" + i);
+                    if (textBox != null) {
+                        qtyString = textBox.value.trim();
+                    } else {
+                        qtyString = document.getElementById("qty" + i).innerHTML.trim();
+                    }
+
+                    var qty = Number.parseInt(qtyString);
+                    var cost = schemaItem.price * qty;
+                    document.getElementById("total" + i).innerHTML = "$" + cost;
+                    msrp += cost;
+                }
+            }
+
+            document.getElementById("msrp1").innerHTML = "Total MSRP: $" + msrp;
+            document.getElementById("msrp2").innerHTML = " $" + msrp;
+        }
+
         function CSVToArray(strData) {
             strDelimiter = ",";
-            
+
             var objPattern = new RegExp(
                 (
                     // Delimiters.
@@ -188,11 +245,11 @@
                 ),
                 "gi"
             );
-            
+
             var arrData = [[]];
-            
+
             var arrMatches = null;
-            
+
             while (arrMatches = objPattern.exec(strData)) {
                 var strMatchedDelimiter = arrMatches[1];
 
@@ -210,7 +267,7 @@
 
                 arrData[arrData.length - 1].push(strMatchedValue);
             }
-            
+
             return (arrData);
         }
 
@@ -235,11 +292,12 @@
                 }
 
                 var number = line[0];
+                var type = line[1];
                 var name = line[2];
                 var desc = line[3];
                 var price = Number.parseFloat(line[5].substring(1));
 
-                var item = new SchemaItem(number, name, desc, price); // Automatically gets put into the dictionary
+                var item = new SchemaItem(number, name, desc, price, type); // Automatically gets put into the dictionary
             }
 
             populateData();
@@ -248,9 +306,8 @@
         function populateData() {
             var url = new URL(window.location.href);
             var arg = url.searchParams.get("items");
-
+            var pot = false;
             var tableText = "";
-            var msrp = 0;
 
             if (arg != null) {
                 var items = arg.split(';');
@@ -266,6 +323,7 @@
                     var qty = Number.parseInt(item[1]);
 
                     var schemaItem = schema[number];
+                    itemCart.push(schemaItem);
                     if (schemaItem == null) {
                         if (!alerted) {
                             alert("Invalid Item: " + number);
@@ -273,17 +331,20 @@
                         }
                         console.log("Invalid Item: " + number);
                     } else {
-                        tableText += schemaItem.getHTML(qty);
-                        msrp += schemaItem.price * qty;
+                        tableText += schemaItem.getHTML(qty, i);
+
+                        if (schemaItem.type == "Pots") {
+                            pot = true;
+                        }
                     }
                 }
             } else {
                 console.log("Items not specified in URL!");
             }
-            
+
             document.getElementById("itemTable").innerHTML += tableText;
-            document.getElementById("msrp1").innerHTML += " $" + msrp;
-            document.getElementById("msrp2").innerHTML += " $" + msrp;
+
+            updateAllTotals();
 
             var date = new Date();
             document.getElementById("date").innerHTML += " " + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
@@ -294,6 +355,10 @@
             hours = (hours == '00') ? 12 : hours;
 
             document.getElementById("time").innerHTML += " " + hours + ":" + date.getMinutes() + suffix;
+
+            if (pot) {
+                alert("It looks like you're buying pots! You'll need to enter the number you want by clicking on the appropriate 'Quantity' entry.");
+            }
         }
     </script>
 </head>
